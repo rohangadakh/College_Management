@@ -46,7 +46,6 @@ public class ASFragment extends Fragment {
 
     View rootView;
     private List<MainModel> dataList = new ArrayList<>();
-    Button btne, btnd;
 
     public ASFragment() {
         // Required empty public constructor
@@ -110,7 +109,7 @@ public class ASFragment extends Fragment {
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("teachers"), MainModel.class)
                         .build();
 
-        mainAdapter = new MainAdapter(options);
+        mainAdapter = new MainAdapter(options, false);
         recyclerView.setAdapter(mainAdapter);
 
     }

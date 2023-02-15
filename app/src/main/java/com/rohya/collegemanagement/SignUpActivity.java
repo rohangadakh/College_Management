@@ -1,5 +1,7 @@
 package com.rohya.collegemanagement;
 
+import static java.lang.Integer.parseInt;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,9 +23,10 @@ import java.util.HashMap;
 
 public class SignUpActivity extends AppCompatActivity {
 
-    EditText txt_name, txt_email, txt_password, txt_confirmPassword;
+    EditText txt_name, txt_email, txt_password, txt_confirmPassword, txt_MasterCode;
     TextView txt_click_signIn;
     Button btn_signUp;
+
     private PrefrenceManager prefrenceManager;
 
     @Override
@@ -36,6 +39,7 @@ public class SignUpActivity extends AppCompatActivity {
         txt_password = findViewById(R.id.inputPassword);
         txt_confirmPassword = findViewById(R.id.inputConfirmPassword);
         txt_click_signIn = findViewById(R.id.textSignIn);
+        txt_MasterCode = findViewById(R.id.inputCode);
         btn_signUp = findViewById(R.id.buttonSignUp);
 
         btn_signUp.setOnClickListener(new View.OnClickListener() {
@@ -83,6 +87,9 @@ public class SignUpActivity extends AppCompatActivity {
         } else if (txt_password.toString().equals(txt_confirmPassword.getText().toString())){
             showToast("Password & confirm password must be same");
             return false;
+        } else if (parseInt(txt_MasterCode.getText().toString())!=0000) {
+            showToast("Invalid Master Code");
+            return false;
         } else
         {
             return true;
@@ -96,6 +103,7 @@ public class SignUpActivity extends AppCompatActivity {
         user.put("Name",txt_name.getText().toString().trim());
         user.put("Email",txt_email.getText().toString());
         user.put("Password",txt_password.getText().toString().trim());
+        user.put("allow", true);
         database.collection("collection")
                 .add(user)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {

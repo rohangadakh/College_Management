@@ -1,11 +1,7 @@
 package com.rohya.collegemanagement;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -13,9 +9,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.common.internal.Constants;
-import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.firestore.DocumentSnapshot;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class SingInActivity extends AppCompatActivity {
@@ -68,8 +63,8 @@ public class SingInActivity extends AppCompatActivity {
                 .addOnCompleteListener(task -> {
                     if(task.isSuccessful() && task.getResult() != null && task.getResult().getDocumentChanges().size() > 0 )
                     {
-//                        saveAllowToSharedPreferences(true);
                         Intent intent = new Intent(getApplicationContext(), MainActivity_2.class);
+                        intent.putExtra("allow", true);
                         startActivity(intent);
                         showToast("Success Sign-in");
                     } else
@@ -99,20 +94,5 @@ public class SingInActivity extends AppCompatActivity {
     {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
-//
-//    private void saveAllowToSharedPreferences(boolean allow) {
-//        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-//        SharedPreferences.Editor editor = preferences.edit();
-//        editor.putBoolean("allow", allow);
-//        editor.apply();
-//    }
-//
-//    public boolean isAllow() {
-//        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-//        return preferences.getBoolean("allow", false);
-//    }
-//
-//    public void setAllow(boolean allow) {
-//        this.allow = allow;
-//    }
+
 }

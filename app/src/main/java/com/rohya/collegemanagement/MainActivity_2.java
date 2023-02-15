@@ -63,7 +63,7 @@ public class MainActivity_2 extends AppCompatActivity {
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("teachers"), MainModel.class)
                         .build();
 
-        mainAdapter = new MainAdapter(options);
+        mainAdapter = new MainAdapter(options, true);
         recyclerView.setAdapter(mainAdapter);
     }
 }
