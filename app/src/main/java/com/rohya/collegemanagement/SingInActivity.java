@@ -35,10 +35,9 @@ public class SingInActivity extends AppCompatActivity {
         btn_signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (isInvaldSignUpDetails())
+                if (isInvalidSignUpDetails())
                 {
                     sigIn();
-
                 }
             }
         });
@@ -73,7 +72,7 @@ public class SingInActivity extends AppCompatActivity {
                     }
                 });
     }
-    private boolean isInvaldSignUpDetails()
+    private boolean isInvalidSignUpDetails()
     {
         if (txt_email.getText().toString().trim().isEmpty()) {
             showToast("Enter email");

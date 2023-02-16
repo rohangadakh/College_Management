@@ -1,6 +1,5 @@
 package com.rohya.collegemanagement;
 
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,21 +26,34 @@ import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class MainAdapter extends FirebaseRecyclerAdapter<MainModel, MainAdapter.myViewHolder> {
-    private final boolean mAllowEditDelete;
 
-    public MainAdapter(@NonNull FirebaseRecyclerOptions<MainModel> options, boolean allowEditDelete) {
+
+public class MainAdapter extends FirebaseRecyclerAdapter<MainModel, MainAdapter.myViewHolder> {
+    /**
+     * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
+     * {@link FirebaseRecyclerOptions} for configuration options.
+     *
+     */
+
+    boolean allow;
+
+    public MainAdapter(@NonNull FirebaseRecyclerOptions<MainModel> options, boolean allow) {
         super(options);
-        mAllowEditDelete = allowEditDelete;
+        this.allow = allow;
     }
 
     @Override
     protected void onBindViewHolder(@NonNull myViewHolder holder, int position, @NonNull MainModel model) {
+        holder.name.setText(model.getName());
+        holder.course.setText(model.getCourses());
+        holder.email.setText(model.getEmail());
 
-        if (mAllowEditDelete) {
+        if(allow)
+        {
             holder.btnEdit.setVisibility(View.VISIBLE);
             holder.btnDelete.setVisibility(View.VISIBLE);
-        } else {
+        }else {
+
             holder.btnEdit.setVisibility(View.GONE);
             holder.btnDelete.setVisibility(View.GONE);
         }
@@ -50,9 +62,9 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel, MainAdapter.
 
         Glide.with(holder.img.getContext())
                 .load(model.getTurl())
-                .placeholder(com.firebase.ui.database.R.drawable.notification_bg)
+                .placeholder(com.firebase.ui.database.R.drawable.common_google_signin_btn_icon_dark)
                 .circleCrop()
-                .error(com.firebase.ui.database.R.drawable.notification_icon_background)
+                .error(com.firebase.ui.database.R.drawable.googleg_standard_color_18)
                 .into(holder.img);
 
         holder.btnEdit.setOnClickListener(new View.OnClickListener() {
@@ -62,6 +74,7 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel, MainAdapter.
                         .setContentHolder(new ViewHolder(R.layout.update_popup))
                         .setExpanded(true)
                         .create();
+
 
                 View view = dialogPlus.getHolderView();
                 EditText name = view.findViewById(R.id.edtName);
@@ -99,7 +112,7 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel, MainAdapter.
                                 .addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
-                                        Toast.makeText(holder.name.getContext(), "Eorror: "+e, Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(holder.name.getContext(), "Error: "+e, Toast.LENGTH_SHORT).show();
                                         dialogPlus.dismiss();
                                     }
                                 });
@@ -131,6 +144,8 @@ public class MainAdapter extends FirebaseRecyclerAdapter<MainModel, MainAdapter.
         TextView name, course, email;
 
         Button btnEdit, btnDelete;
+
+        FloatingActionButton floating;
 
         public myViewHolder(@NonNull View itemView) {
             super(itemView);

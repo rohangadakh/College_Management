@@ -17,7 +17,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class add extends AppCompatActivity {
-
     EditText name, email, course, imgUrl;
     Button btnadd;
 

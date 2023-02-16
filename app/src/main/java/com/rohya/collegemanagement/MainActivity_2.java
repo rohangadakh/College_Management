@@ -6,10 +6,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -30,7 +28,7 @@ public class MainActivity_2 extends AppCompatActivity {
         floatingActionButton = findViewById(R.id.floatingActionButton);
         floatingUpt = findViewById(R.id.floatingUpt);
 
-        retriveData();
+        retrieveData();
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,8 +53,8 @@ public class MainActivity_2 extends AppCompatActivity {
         mainAdapter.stopListening();
     }
 
-    private void retriveData() {
-        recyclerView = (RecyclerView) findViewById(R.id.rv);
+    private void retrieveData() {
+        recyclerView = findViewById(R.id.rv);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         FirebaseRecyclerOptions<MainModel> options =
                 new FirebaseRecyclerOptions.Builder<MainModel>()
@@ -65,5 +63,7 @@ public class MainActivity_2 extends AppCompatActivity {
 
         mainAdapter = new MainAdapter(options, true);
         recyclerView.setAdapter(mainAdapter);
+        Log.d("MainActivity_222", "Number of items retrieved: " + options.getSnapshots().size());
+
     }
 }

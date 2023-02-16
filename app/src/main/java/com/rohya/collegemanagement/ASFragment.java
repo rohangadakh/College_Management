@@ -106,7 +106,7 @@ public class ASFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         FirebaseRecyclerOptions<MainModel> options =
                 new FirebaseRecyclerOptions.Builder<MainModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("teachers"), MainModel.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("teachers").orderByChild("courses").startAt("AS").endAt("AS"), MainModel.class)
                         .build();
 
         mainAdapter = new MainAdapter(options, false);
