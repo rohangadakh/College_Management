@@ -43,4 +43,10 @@
     <string name="select_user">Select User</string>
     <string name="password">Password</string>
     <string name="master_code">Master code</string>
+    <string name="add_data">Add Data</string>
+    <string name="send_event_notification">Send Event Notification</string>
+    <string name="add">Add Data</string>
+    <string name="image_url">Image URL</string>
+    <string name="add_">ADD</string>
+    <string name="update">Update</string>
 </resources>

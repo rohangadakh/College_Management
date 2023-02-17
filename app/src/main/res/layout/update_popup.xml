@@ -2,52 +2,62 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="10dp"
-    android:layout_marginTop="5dp"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Update"
-        android:background="@color/black"
-        android:textSize="25sp"
+        android:layout_height="@dimen/_40sdp"
+        android:text="@string/update"
+        android:background="@color/primary_dark"
+        android:textSize="@dimen/_25ssp"
         android:textColor="@color/white"
+        android:paddingStart="@dimen/_12sdp"
         android:gravity="center" />
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="@dimen/_30sdp"
         android:background="@drawable/rounded"
         android:id="@+id/edtName"
-        android:hint="Name"/>
+        android:layout_margin="@dimen/_5sdp"
+        android:paddingStart="@dimen/_12sdp"
+        android:hint="@string/name"/>
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_margin="@dimen/_5sdp"
         android:background="@drawable/rounded"
         android:id="@+id/edtEmail"
-        android:hint="Email" />
+        android:paddingStart="@dimen/_12sdp"
+        android:hint="@string/email" />
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_margin="@dimen/_5sdp"
         android:background="@drawable/rounded"
         android:id="@+id/edtCourse"
-        android:hint="Course" />
+        android:paddingStart="@dimen/_12sdp"
+        android:hint="@string/course" />
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="@dimen/_30sdp"
         android:background="@drawable/rounded"
         android:id="@+id/edtUrl"
-        android:hint="img URL" />
+        android:layout_margin="@dimen/_5sdp"
+        android:paddingStart="@dimen/_12sdp"
+        android:hint="@string/image_url" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Update"
+        android:layout_height="@dimen/_40sdp"
+        android:text="@string/update"
+        app:cornerRadius="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginEnd="@dimen/_18sdp"
         android:id="@+id/btnUpdate" />
 
 </LinearLayout>

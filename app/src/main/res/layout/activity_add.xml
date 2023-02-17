@@ -9,45 +9,54 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ADD"
-        android:background="@color/black"
+        android:layout_height="@dimen/_80sdp"
+        android:text="@string/add"
+        android:background="@color/primary_dark"
         android:textSize="25sp"
         android:textColor="@color/white"
         android:gravity="center" />
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="@dimen/_30sdp"
         android:background="@drawable/rounded"
         android:id="@+id/edtName"
-        android:hint="Name"/>
+        android:paddingStart="@dimen/_12sdp"
+        android:layout_margin="@dimen/_5sdp"
+        android:hint="@string/name"/>
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="@dimen/_30sdp"
         android:background="@drawable/rounded"
         android:id="@+id/edtEmail"
-        android:hint="Email" />
+        android:paddingStart="@dimen/_12sdp"
+        android:layout_margin="@dimen/_5sdp"
+        android:hint="@string/email" />
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="@dimen/_30sdp"
         android:background="@drawable/rounded"
         android:id="@+id/edtCourse"
-        android:hint="Course" />
+        android:paddingStart="@dimen/_12sdp"
+        android:layout_margin="@dimen/_5sdp"
+        android:hint="@string/course" />
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="@dimen/_30sdp"
         android:background="@drawable/rounded"
         android:id="@+id/edtUrl"
-        android:hint="img URL" />
+        android:paddingStart="@dimen/_12sdp"
+        android:layout_margin="@dimen/_5sdp"
+        android:hint="@string/image_url" />
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ADD"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_margin="@dimen/_5sdp"
+        android:text="@string/add_"
         android:id="@+id/btnadd" />
 
 </LinearLayout>

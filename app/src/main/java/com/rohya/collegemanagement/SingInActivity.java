@@ -62,7 +62,7 @@ public class SingInActivity extends AppCompatActivity {
                 .addOnCompleteListener(task -> {
                     if(task.isSuccessful() && task.getResult() != null && task.getResult().getDocumentChanges().size() > 0 )
                     {
-                        Intent intent = new Intent(getApplicationContext(), MainActivity_2.class);
+                        Intent intent = new Intent(getApplicationContext(), Admin_Activity.class);
                         intent.putExtra("allow", true);
                         startActivity(intent);
                         showToast("Success Sign-in");

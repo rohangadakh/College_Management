@@ -72,7 +72,7 @@
                 android:id="@+id/btnDelete"
                 android:layout_width="@dimen/_80sdp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_80sdp"
+                android:layout_marginStart="@dimen/_110sdp"
                 android:text="@string/delete" />
 
         </LinearLayout>
