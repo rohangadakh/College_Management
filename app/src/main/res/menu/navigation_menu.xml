@@ -10,12 +10,8 @@
         android:title="@string/announcement" />
 
     <item android:id="@+id/menuLibrary"
-        android:icon="@drawable/nav_icon_library"
-        android:title="@string/library" />
-
-    <item android:id="@+id/menuPlacement"
-        android:icon="@drawable/nav_icon_placement"
-        android:title="@string/placement" />
+        android:icon="@drawable/nav_icon_quiz"
+        android:title="@string/quiz" />
 
     <item android:id="@+id/menuDeparment"
         android:icon="@drawable/nav_icon_university"
@@ -40,10 +36,6 @@
             <item android:id="@+id/menuDepartmentETC"
                 android:icon="@drawable/nav_icon_enadtc"
                 android:title="@string/e_and_tc_engineering" />
-
-            <item android:id="@+id/menuDepartmentWS"
-                android:icon="@drawable/nav_icon_workshop"
-                android:title="@string/workshop" />
         </menu>
     </item>
 

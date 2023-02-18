@@ -15,6 +15,12 @@
         android:theme="@style/Theme.CollegeManagement"
         tools:targetApi="31">
         <activity
+            android:name=".AddQuiz"
+            android:exported="false" />
+        <activity
+            android:name=".AddAnnouncement"
+            android:exported="false" />
+        <activity
             android:name=".Admin_Activity"
             android:exported="false" />
         <activity

@@ -31,6 +31,26 @@
             android:textSize="@dimen/_16ssp"
             android:background="@drawable/rounded"/>
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAnnounce"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_80sdp"
+            android:text="@string/new_announcement"
+            android:textAllCaps="false"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textSize="@dimen/_16ssp"
+            android:background="@drawable/rounded"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnQuiz"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_80sdp"
+            android:text="@string/quiz"
+            android:textAllCaps="false"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textSize="@dimen/_16ssp"
+            android:background="@drawable/rounded"/>
+
 
     </LinearLayout>
 

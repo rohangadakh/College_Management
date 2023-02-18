@@ -55,11 +55,6 @@
         android:label="fragment_m_e"
         tools:layout="@layout/fragment_m_e" />
     <fragment
-        android:id="@+id/menuDepartmentWS"
-        android:name="com.rohya.collegemanagement.WSFragment"
-        android:label="fragment_w_s"
-        tools:layout="@layout/fragment_w_s" />
-    <fragment
         android:id="@+id/menuDepartmentETC"
         android:name="com.rohya.collegemanagement.EandTcFragment"
         android:label="fragment_eand_tc"

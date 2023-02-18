@@ -3,10 +3,21 @@ package com.rohya.collegemanagement;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.denzcoskun.imageslider.ImageSlider;
+import com.denzcoskun.imageslider.constants.ScaleTypes;
+import com.denzcoskun.imageslider.models.SlideModel;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +34,13 @@ public class CEFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    // My Declares
+    ImageSlider imageSlider;
+    RecyclerView recyclerView;
+    MainAdapter mainAdapter;
+    View rootView;
+    private List<MainModel> dataList = new ArrayList<>();
 
     public CEFragment() {
         // Required empty public constructor
@@ -59,6 +77,46 @@ public class CEFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_c_e, container, false);
+        rootView = inflater.inflate(R.layout.fragment_c_e, container, false);
+        ImageSlider();
+        retriveData();
+
+        return rootView;
     }
-}
+        private void ImageSlider () {
+            imageSlider = rootView.findViewById(R.id.imageslider);
+
+            List<SlideModel> slideModels = new ArrayList<>();
+            slideModels.add(new SlideModel(R.drawable.img_1, ScaleTypes.FIT));
+            slideModels.add(new SlideModel(R.drawable.img_2, ScaleTypes.FIT));
+            slideModels.add(new SlideModel(R.drawable.img_3, ScaleTypes.FIT));
+            slideModels.add(new SlideModel(R.drawable.img_2, ScaleTypes.FIT));
+            slideModels.add(new SlideModel(R.drawable.img_3, ScaleTypes.FIT));
+            imageSlider.setImageList(slideModels);
+        }
+
+        private void retriveData () {
+            recyclerView = rootView.findViewById(R.id.asFragmentRecyclerView);
+            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+            FirebaseRecyclerOptions<MainModel> options =
+                    new FirebaseRecyclerOptions.Builder<MainModel>()
+                            .setQuery(FirebaseDatabase.getInstance().getReference().child("teachers").orderByChild("courses").startAt("CE").endAt("CE"), MainModel.class)
+                            .build();
+
+            mainAdapter = new MainAdapter(options, false);
+            recyclerView.setAdapter(mainAdapter);
+
+        }
+
+        @Override
+        public void onStart () {
+            super.onStart();
+            mainAdapter.startListening();
+        }
+
+        @Override
+        public void onStop () {
+            super.onStop();
+            mainAdapter.stopListening();
+        }
+    }
