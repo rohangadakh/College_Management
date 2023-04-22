@@ -51,7 +51,15 @@
             android:textSize="@dimen/_16ssp"
             android:background="@drawable/rounded"/>
 
-
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnnotes"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_80sdp"
+            android:text="Notes"
+            android:textAllCaps="false"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textSize="@dimen/_16ssp"
+            android:background="@drawable/rounded"/>
     </LinearLayout>
 
 </ScrollView>

@@ -36,6 +36,15 @@ public class Admin_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_admin);
 
         Button btnAddData = findViewById(R.id.btnAddData);
+        Button btnnotes = findViewById(R.id.btnnotes);
+
+        btnnotes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), NotesAdmin.class);
+                startActivity(i);
+            }
+        });
         btnAddData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

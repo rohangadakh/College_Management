@@ -61,6 +61,20 @@
             app:navGraph="@navigation/main"
             />
 
+        <Button
+            android:id="@+id/fab_button"
+            android:layout_width="111dp"
+            android:layout_height="43dp"
+            android:layout_margin="16dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/primary_dark"
+            android:gravity="center_horizontal"
+            android:text="Notes"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="150dp" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.navigation.NavigationView
@@ -69,7 +83,6 @@
         android:layout_height="match_parent"
         app:menu="@menu/navigation_menu"
         android:layout_gravity="start"
-        app:headerLayout="@layout/navigation_header"
-        />
+        app:headerLayout="@layout/navigation_header" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

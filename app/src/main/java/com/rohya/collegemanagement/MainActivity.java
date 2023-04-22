@@ -1,5 +1,10 @@
 package com.rohya.collegemanagement;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -7,11 +12,6 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
-import android.os.Bundle;
-import android.view.Gravity;
-import android.view.View;
-
-import com.google.android.material.internal.NavigationMenu;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,6 +22,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
+
+        Button fab_button = findViewById(R.id.fab_button);
+        fab_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), NotesDownload.class);
+                startActivity(i);
+            }
+        });
 
         findViewById(R.id.imageMenu).setOnClickListener(new View.OnClickListener() {
             @Override
